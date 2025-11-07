@@ -1,23 +1,23 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
-import typography from '@tailwindcss/typography';
+// tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme');
+const forms = require('@tailwindcss/forms');
+const typography = require('@tailwindcss/typography');
+const wireuiPreset = require('./vendor/wireui/wireui/tailwind.config.js');
 
 /** @type {import('tailwindcss').Config} */
-export default {
-    presets: [...require('./vendor/laravel/jetstream/tailwind.config.js')],
+module.exports = {
+    presets: Array.isArray(wireuiPreset) ? wireuiPreset : [wireuiPreset],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
 
-        // Wire UI
-        './vendor/wireui/wireui/src/*.php',
-        './vendor/wireui/wireui/ts/**/*.ts',
-        './vendor/wireui/wireui/src/WireUI/**/*.php',
-        './vendor/wireui/wireui/src/Components/**/*.php',
+        "./vendor/wireui/wireui/src/*.php",
+        "./vendor/wireui/wireui/ts/**/*.ts",
+        "./vendor/wireui/wireui/src/WireUi/**/*.php",
+        "./vendor/wireui/wireui/src/Components/**/*.php",
 
-        // Livewire Tables
         './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
     ],
 
