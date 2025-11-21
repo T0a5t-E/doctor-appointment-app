@@ -8,36 +8,13 @@ $links = [
         'active' => request()->routeIs('admin.dashboard'),
     ],
     [
-        'header' => 'Gestión de Usuarios',
+        'header' => 'Gestión',
     ],
     [
-        'name' => 'Usuarios',
-        'icon' => 'fa-solid fa-users',
-        'href' => route('admin.users.index'),
-        'active' => request()->routeIs('admin.users.*'),
-    ],
-    [
-        'name' => 'Dashboard',
-        'icon' => 'fa-solid fa-gauge',
-        'href' => route('admin.dashboard'),
-        'active' => false,
-        'submenu' => [
-            [
-                'name' => 'Ian master',
-                'href' => '#',
-                'active' => false,
-            ],
-            [
-                'name' => 'Biling',
-                'href' => '#',
-                'active' => false,
-            ],
-            [
-                'name' => 'Invoice',
-                'href' => '#',
-                'active' => false,
-            ]
-        ],
+        'name' => 'Roles y permisos',
+        'icon' => 'fa-solid fa-shield-halved',
+        'href' => route('admin.roles.index'),
+        'active' => request()->routeIs('admin.roles.*'),
     ]
 ];
 @endphp

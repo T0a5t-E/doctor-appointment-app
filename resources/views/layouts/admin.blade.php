@@ -1,4 +1,7 @@
-@props(['breadcrumbs' => []])
+@props([
+    'title' => config('app.name', 'Laravel'),
+    'breadcrumbs' => []
+])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -7,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -33,7 +36,7 @@
     <div class="p-4 sm:ml-64">
         <!-- Margin top 14 px -->
         <div class= "mt-14 flex items-center justify-between w-full">
-            include('layouts.includes.admin.breadcrumb')
+            @include('layouts.includes.admin.breadcrumb')
         </div>
         {{$slot}}
     </div>

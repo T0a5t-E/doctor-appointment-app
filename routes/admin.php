@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\RoleController;
 
-Route::get('/', function(){
+// Dashboard del panel de administración
+Route::get('/', function () {
     return view('admin.dashboard');
-})->name('dashboard');
+})->name('dashboard');   // No need for 'admin.' prefix - it's added automatically
 
-// Usuarios CRUD
-Route::resource('users', UsersController::class)->names('users');
+// CRUD de Roles
+Route::resource('roles', RoleController::class)
+    ->names('roles');
